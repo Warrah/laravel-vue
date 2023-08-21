@@ -56,6 +56,7 @@ pipeline {
            steps {
                script {
                    sh 'sudo chmod 755 /var/www/html/vue-laravel/public'
+                    sh 'sudo chmod 644 /var/www/html/vue-laravel/public/*.php'
                   sh 'sudo chown -R www-data:www-data /var/www/html/vue-laravel/public'
                  sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/storage'   
                   sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/bootstrap/cache'   
