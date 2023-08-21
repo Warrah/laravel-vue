@@ -39,18 +39,17 @@ pipeline {
             }
         }
 
-        //stage('Deploy to Nginx') {
-           // steps {
-           //     script {
-                    // Copy built Vue.js files to Nginx web root
-                  //  sh 'cp -r vue-app-directory/dist/* /var/www/html' // Replace with your Nginx web root
+        stage('Deploy to Nginx') {
+           steps {
+               script {
+                  sh 'cp -r vue-app-directory/dist/* /var/www/html/vue-laravel' // Replace with your Nginx web root
 
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
-                   // sh 'cp nginx-config/vue-app.conf /etc/nginx/sites-available' // Replace with your Nginx config path
-                  //  sh 'ln -s /etc/nginx/sites-available/vue-app.conf /etc/nginx/sites-enabled'
-                  //  sh 'service nginx restart'
-             //   }
-          //  }
-       // }
+                   sh 'cp app.conf /etc/nginx/sites-available' // Replace with your Nginx config path
+                  sh 'ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled'
+                  sh 'service nginx restart'
+             }
+          }
+       }
     }
 }
