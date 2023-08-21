@@ -13,7 +13,6 @@ pipeline {
         stage('Build Vue App') {
             steps {
                 script {
-                    sh 'cd backend' // Change to your Vue.js app directory
                     sh 'npm install'
                     sh 'npm run build'
                 }
@@ -42,7 +41,7 @@ pipeline {
         stage('Deploy to Nginx') {
            steps {
                script {
-                  sh 'cp -r backend/dist/* /var/www/html/vue-laravel' // Replace with your Nginx web root
+                  sh 'cp -r public/build/* /var/www/html/vue-laravel/public/build' // Replace with your Nginx web root
 
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
                    sh 'cp app.conf /etc/nginx/sites-available' // Replace with your Nginx config path
