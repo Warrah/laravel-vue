@@ -15,7 +15,9 @@ pipeline {
                 script {
                     sh 'npm install'
                     sh 'cd backend'
+                    sh 'ls'
                     sh 'npm install'
+                    sh 'ls'
                     sh 'cp .env.example .env'
                     sh 'npm run build'
                     sh 'ls'
