@@ -41,10 +41,11 @@ pipeline {
         stage('Deploy to Nginx') {
            steps {
                script {
-                   sh 'sudo chmod 777 public/build/'
+                   sh 'sudo chmod 755 /var/www/html/vue-laravel/public/build'
+                  sh 'sudo chown -R www-data:www-data /var/www/html/vue-laravel/public/build'
                  sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/storage'   
                   sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/bootstrap/cache'   
-                  sh 'sudo cp -r * /var/www/html/vue-laravel/' // Replace with your Nginx web root
+                  sh 'sudo cp -r /var/www/html/vue-laravel/public/build /var/www/html/vue-laravel/public/' // Replace with your Nginx web root
 
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
                    sh 'sudo cp app.conf /etc/nginx/sites-available/' // Replace with your Nginx config path
