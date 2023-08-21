@@ -46,7 +46,8 @@ pipeline {
                   sh 'sudo cp -r public/build/* /var/www/html/vue-laravel/public/build' // Replace with your Nginx web root
 
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
-                   sh 'sudo cp app.conf /etc/nginx/sites-available' // Replace with your Nginx config path
+                   sh 'sudo cp app.conf /etc/nginx/sites-available/' // Replace with your Nginx config path
+                   sh 'sudo rm /etc/nginx/sites-enabled/app.conf'
                   sh 'sudo ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled'
                    sh 'sudo nginx -t'
                   sh 'sudo systemctl restart nginx'
