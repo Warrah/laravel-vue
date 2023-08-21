@@ -48,7 +48,8 @@ pipeline {
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
                    sh 'sudo cp app.conf /etc/nginx/sites-available' // Replace with your Nginx config path
                   sh 'sudo ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled'
-                  sh 'sudo service nginx restart'
+                   sh 'sudo nginx -t'
+                  sh 'sudo systemctl restart nginx'
              }
           }
        }
