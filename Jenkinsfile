@@ -46,6 +46,12 @@ pipeline {
             }
         }
 
+        stage("Test") {
+            steps {
+                echo 'Testing.....'
+            }
+        }
+
         stage('Deploy to Nginx') {
            steps {
                script {
