@@ -63,7 +63,7 @@ pipeline {
                    sh 'sudo chmod -R 755 /var/www/html/vue-laravel/backend/dist'
 sh 'sudo chown -R www-data:www-data /var/www/html/vue-laravel/backend/dist'
 sh 'sudo cp -r public /var/www/html/vue-laravel/public'
-                   sh 'sudo tail -f /var/log/nginx/error.log'
+                  // sh 'sudo tail -f /var/log/nginx/error.log'
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
                    sh 'sudo cp app.conf /etc/nginx/sites-available/' // Replace with your Nginx config path
                    sh 'sudo rm /etc/nginx/sites-enabled/app.conf'
