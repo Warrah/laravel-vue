@@ -49,8 +49,8 @@ pipeline {
         stage('Deploy to Nginx') {
            steps {
                script {
-                   sh 'sudo chmod 755 /var/www/html/vue-laravel/public/build'
-                  sh 'sudo chown -R www-data:www-data /var/www/html/vue-laravel/public/build'
+                   sh 'sudo chmod 755 /var/www/html/vue-laravel/public'
+                  sh 'sudo chown -R www-data:www-data /var/www/html/vue-laravel/public'
                  sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/storage'   
                   sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/bootstrap/cache'   
                   sh 'sudo cp -r backend/dist /var/www/html/vue-laravel/backend/dist' // Replace with your Nginx web root
