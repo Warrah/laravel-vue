@@ -14,6 +14,9 @@ pipeline {
             steps {
                 script {
                     sh 'npm install'
+                    sh 'cd backend'
+                    sh 'npm install'
+                    sh 'cp .env.example .env'
                     sh 'npm run build'
                 }
             }
@@ -45,7 +48,7 @@ pipeline {
                   sh 'sudo chown -R www-data:www-data /var/www/html/vue-laravel/public/build'
                  sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/storage'   
                   sh 'sudo chown www-data:www-data /var/www/html/vue-laravel/bootstrap/cache'   
-                  sh 'sudo cp -r build /var/www/html/vue-laravel/build' // Replace with your Nginx web root
+                  sh 'sudo cp -r backend/dist/ /var/www/html/vue-laravel/backend/dist/' // Replace with your Nginx web root
 
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
                    sh 'sudo cp app.conf /etc/nginx/sites-available/' // Replace with your Nginx config path
