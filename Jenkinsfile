@@ -41,6 +41,8 @@ pipeline {
         stage('Deploy to Nginx') {
            steps {
                script {
+                   sh 'sudo chmod 777 public/build/'
+                  
                   sh 'cp -r public/build/* /var/www/html/vue-laravel/public/build' // Replace with your Nginx web root
 
                     // Configure Nginx for the Vue.js app (adjust server block as needed)
