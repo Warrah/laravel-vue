@@ -13,7 +13,7 @@ pipeline {
         stage('Build Vue App') {
             steps {
                 script {
-                    sh 'cd vue-app-directory' // Change to your Vue.js app directory
+                    sh 'cd backend' // Change to your Vue.js app directory
                     sh 'npm install'
                     sh 'npm run build'
                 }
