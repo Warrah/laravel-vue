@@ -53,23 +53,4 @@ pipeline {
           //  }
        // }
     }
-
-    post {
-        success {
-            echo 'Deployment successful!'
-            slackSend(
-                channel: '#general', // Specify your Slack channel
-                color: 'good',
-                message: "Deployment of your Vue.js + Laravel project was successful!"
-            )
-        }
-        failure {
-            echo 'Deployment failed!'
-            slackSend(
-                channel: '#general', // Specify your Slack channel
-                color: 'danger',
-                message: "Deployment of your Vue.js + Laravel project failed."
-            )
-        }
-    }
 }
